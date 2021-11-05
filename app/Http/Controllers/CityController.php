@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Services\IBGEService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -28,15 +29,20 @@ class CityController extends Controller
         }
         $rawResult = collect($this->service->getCitiesByState($state))->all();
 
+        // dd($rawResult);
         if ($rawResult != null) {
+            $now = Carbon::now('utc')->toDateTimeString();
             for ($x = 0; $x < sizeof($rawResult); $x++) {
-                $this->model->firstOrNew(
-                    ['id' => $rawResult[$x]['id']],
-                    ['name' => $rawResult[$x]['nome']],
-                );
+                $cities[] = [
+                    'id' => $rawResult[$x]['id'],
+                    'name' => $rawResult[$x]['nome'],
+                    'created_at' => $now,
+                    'updated_at' => $now
+                ];
             }
         }
 
+        $this->model::upsert($cities, 'id');
 
         return response()->json($this->model->orderBy('name', 'asc')->get());
     }

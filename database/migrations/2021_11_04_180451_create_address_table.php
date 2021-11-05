@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateAddressTable extends Migration
@@ -21,6 +22,7 @@ class CreateAddressTable extends Migration
             $table->timestamps();
 
             $table->integer('city_id', false, true)->nullable(false);
+            // $table->unsignedBigInteger('city_id')->nullable(false);
 
             $table->foreign('city_id')
                 ->references('id')
@@ -36,8 +38,17 @@ class CreateAddressTable extends Migration
      */
     public function down()
     {
+        // Schema::table('address', function (Blueprint $table) {
+        //     $table->dropForeign(['city_id']);
+        // });
+
         Schema::table('address', function (Blueprint $table) {
-            $table->dropForeign(['city_id']);
+            /** Make sure to put this condition to check if driver is SQLite */
+            if (DB::getDriverName() !== 'sqlite') {
+                $table->dropForeign(['city_id']);
+            }
+
+            $table->dropColumn(['city_id']);
         });
         Schema::dropIfExists('address');
     }

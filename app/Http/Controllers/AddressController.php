@@ -49,7 +49,7 @@ class AddressController extends Controller
 
         if (!$address) {
             return response()->json([
-                'message' => 'Cidade não encontrada'
+                'message' => 'Endereço não encontrado'
             ], 404);
         }
 
@@ -66,7 +66,7 @@ class AddressController extends Controller
 
         if (!$address) {
             return response()->json([
-                'message' => 'Cidade não encontrada'
+                'message' => 'Endereço não encontrado'
             ], 404);
         }
         $data = [
@@ -89,7 +89,7 @@ class AddressController extends Controller
 
         if (!$address) {
             return response()->json([
-                'message' => 'Cidade não encontrada'
+                'message' => 'Endereço não encontrado'
             ], 404);
         }
 
