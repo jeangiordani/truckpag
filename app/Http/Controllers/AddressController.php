@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAddressRequest;
 use App\Http\Requests\UpdateAddressRequest;
 use App\Http\Resources\AddressResource;
 use App\Models\Address;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -17,7 +18,7 @@ class AddressController extends Controller
         $this->model = $model;
     }
 
-    public function store(StoreAddressRequest $request)
+    public function store(StoreAddressRequest $request): JsonResponse
     {
         $address = $request->validated();
 
@@ -33,7 +34,7 @@ class AddressController extends Controller
         ], 201);
     }
 
-    public function index()
+    public function index(): JsonResponse
     {
         $address = $this->model->with('cities')->get();
 
@@ -42,7 +43,7 @@ class AddressController extends Controller
         ], 200);
     }
 
-    public function show(int $id)
+    public function show(int $id): JsonResponse
     {
         $address = $this->model->with('cities')->find($id);
 
@@ -57,7 +58,7 @@ class AddressController extends Controller
         ], 200);
     }
 
-    public function update(UpdateAddressRequest $request, int $id)
+    public function update(UpdateAddressRequest $request, int $id): JsonResponse
     {
         $data = $request->validated();
 
@@ -82,7 +83,7 @@ class AddressController extends Controller
         ], 200);
     }
 
-    public function destroy(int $id)
+    public function destroy(int $id): JsonResponse
     {
         $address = $this->model->find($id);
 
