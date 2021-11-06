@@ -35,6 +35,24 @@ $ php artisan migrate
 ```
 # Instruções para executar os testes
 
+* Crie um arquivo chamado "testing.sqlite" dentro da diretório database.
+
+Comando
+Linux:
+```sh
+$ touch database/testing.sqlite
+```
+Windows PW
+
+```sh
+$ new-item -ItemType File -Name database/testing.sqlite
+```
+Windows cmd
+
+```sh
+$ type nul > database/testing.sqlite
+```
+
 * Migrar os testes para o banco de dados externo, nesse caso é o SQLite.
 
 ```sh
@@ -45,7 +63,7 @@ $ php artisan migrate --database sqlite_testing
 ```sh
 $ php artisan test
 ```
-## De acordo com os comando testados na minha máquina, é pro pejeto estar funcionando direito.
+## De acordo com os comando testados na minha máquina, é pra estar funcionando direito.
 
 # Endpoints
 
