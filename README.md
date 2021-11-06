@@ -17,7 +17,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 Mude essas configurações de acordo com as credenciais.
-* Depois crie o banco de dados, nesse caso foi usado o MySQL.
+* Depois crie o banco de dados com o mesmo nome do DB_DATABASE do do arquivo .env.
 
 * Depois instalar as dependencias com o comando abaixo:
 
