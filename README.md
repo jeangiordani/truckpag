@@ -51,7 +51,7 @@ $ php artisan test
 
 | Endpoint                             | Retorno                                                                 | Parâmetros do body                  |
 |--------------------------------------|-------------------------------------------------------------------------|-------------------------------------|
-| GET /cities/{sigla} por exemplo "RS" | Retorna todas as cidades do estado de acordo com a sigla e guarda no DB |                                     |
+| GET /cities/{sigla} exemplo "RS"     | Retorna todas as cidades do estado de acordo com a sigla e guarda no DB |                                     |
 | GET /address                         | Retorna todos os endereços criados                                      |                                     |
 | GET /address/{id}                    | Retorna somente um endereço de acordo com o id                          |                                     |
 | POST /address                        | Cria um endereço                                                        | logradouro, numero, bairro, city_id |
