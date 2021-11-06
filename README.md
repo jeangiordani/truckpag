@@ -16,7 +16,7 @@ DB_DATABASE=truckpag
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-Mude essas configurações de acordo com a que tiver na sua máquina.
+Mude essas configurações de acordo com as credenciais.
 * Depois crie o banco de dados, nesse caso foi usado o MySQL.
 
 * Depois instalar as dependencias com o comando abaixo:
