@@ -42,12 +42,12 @@ Linux:
 ```sh
 $ touch database/testing.sqlite
 ```
-Windows PW
+Power shell ou
 
 ```sh
 $ new-item -ItemType File -Name database/testing.sqlite
 ```
-Windows cmd
+cmd
 
 ```sh
 $ type nul > database/testing.sqlite
